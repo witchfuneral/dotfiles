@@ -1,0 +1,87 @@
+#!/bin/sh
+
+# display config - uncomment if on laptop
+riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@143.856003"
+
+# keyboard!
+riverctl keyboard-layout tr
+
+# start up important services
+riverctl spawn "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+# start rivertile
+riverctl default-layout bsp-layout
+river-bsp-layout --inner-gap 5 --outer-gap 5 --split-perc 0.5 &
+
+# resize
+riverctl map normal Super Right resize horizontal -25
+riverctl map normal Super Up resize vertical 25
+riverctl map normal Super Down resize vertical -25
+riverctl map normal Super Left resize horizontal 25
+
+# move windows
+riverctl map normal Super+Shift Left move left 25
+riverctl map normal Super+Shift Down move down 25
+riverctl map normal Super+Shift Up move up 25
+riverctl map normal Super+Shift Right move right 25
+
+# snap
+riverctl map normal Super+Alt Left snap left
+riverctl map normal Super+Alt Down snap down
+riverctl map normal Super+Alt Up snap up
+riverctl map normal Super+Alt Right snap right
+
+# lifted from example river config
+
+for i in $(seq 1 6)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-6] to focus tag [0-8]
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # Super+Shift+[1-6] to tag focused view with tag [0-8]
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+    # Super+Control+[1-6] to toggle focus of tag [0-8]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
+.
+    # Super+Shift+Control+[1-6] to toggle tag [0-8] of focused view
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+
+# toggle floating mode
+riverctl map normal Super+Shift Tab toggle-float
+
+# keyboard repeat rate
+riverctl set-repeat 50 300
+
+# autostart
+riverctl spawn mako
+riverctl spawn swww-daemon
+riverctl spawn waybar
+
+# terminal
+riverctl map normal Super Return spawn kitty
+
+# launcher
+riverctl map normal Super D spawn wofi
+
+# file explorer
+riverctl map normal Super E spawn thunar
+
+# screenshot
+riverctl map normal Print spawn "grim $HOME/Pictures/Screenshots/Screenshot_`date +%Y%m%d-%H%M%S`.png"
+
+# screenshot (region)
+riverctl map normal Super+Shift S spawn "slurp | grim -g - $HOME/Pictures/Screenshots/Screenshot_`date +%Y%m%d-%H%M%S`.png | wl-copy"
+
+# lock screen
+riverctl map normal Super L spawn "swaylock -c 000000 -f --font 'Iosevka NF Medium'"
+
+# close window
+riverctl map normal Super Q close
+
+# exit river
+riverctl map normal Super+Shift Q exit

@@ -1,0 +1,64 @@
+#window {
+    padding: 0px;
+    background-color: transparent;
+    font-family: Iosevka NF Medium;
+}
+
+#entry {
+border-radius: 1px;
+padding: 1px;
+margin-bottom: 1px;
+}
+
+#entry:selected {
+background-color: #e3a1bd;
+}
+ 
+#text {
+padding: 8px;
+font-size: 13px;
+color:#1f1f1f;
+background-color: transparent;
+} 
+
+#text:selected {
+    font-size:14px;
+    font-weight:400;
+color: #1f1f1f;
+}
+ 
+
+#input {
+border: 1px solid #3C3836;
+background-color: #edd3de;
+padding: 5px;
+font-size: 13px;
+border-radius: 2px;
+color: #1f1f1f;
+}
+
+#inner-box {
+    margin-top: 10px;
+    color: #1f1f1f;
+    padding: 0px;
+    border-radius:2px;
+    border-width: 1px;
+    border:1px solid #3C3836;
+    background-color: #edd3de;
+}
+
+#outer-box {
+margin: 0px;
+background-color: transparent;
+color: #1f1f1f;
+}
+
+#scroll {
+margin-top: 15px;
+}
+
+
+#img {
+  background-color: transparent;
+  padding: 5px;
+}
