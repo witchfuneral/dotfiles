@@ -52,8 +52,8 @@
         },
 
 	"river/tags": {
-		"num-tags": 6,
-		"tag-labels": [" ", "󰖟 ", " ", " ", "󰎇", " "],
+		"num-tags": 8,
+		"tag-labels": [" ", "󰖟 ", "󰎇", "󰺶 ", " ", " ", " ", " "],
 		"disable-scroll": true,
 		"format": "{name}"
 	},
