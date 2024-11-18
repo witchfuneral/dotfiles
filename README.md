@@ -1,16 +1,17 @@
 <h1 align="center">dotfiles - river edition</h1>
 
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/master/assets/dotfiles.png)
+![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/laptop/assets/dotfiles-laptop.png)
 
-- distro: [arch linux](https://archlinux.org/)
+- distro: [archlinux](https://archlinux.org/)
 - window manager: [river](https://codeberg.org/river/river)
 - top bar: [waybar](https://github.com/Alexays/Waybar)
 - launcher: [wofi](https://hg.sr.ht/~scoopta/wofi)
-- file manager: [pcmanfm](https://archlinux.org/packages/extra/x86_64/thunar/)
+- file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
-- editor: [visual studio code](https://github.com/microsoft/vscode)
-- font: [iosevka nerd](https://github.com/ryanoasis/nerd-fonts)
+- editor: [nano](https://archlinux.org/packages/core/x86_64/nano/)
+- ide: [visual studio code](https://github.com/microsoft/vscode)
+- font: [fira code nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
 - *fetch: [hyfetch](https://github.com/hykilpikonna/hyfetch)
 
 ## Dependencies
@@ -20,10 +21,11 @@
 - swaylock
 - grim
 - slurp
+- imagemagick
 - python-pywal
 - waybar
 - kitty
-- thunar
+- nemo
 - polkit-gnome
 - xdg-desktop-portal & xdg-desktop-portal-wlr 
 - gnome-keyring
@@ -37,12 +39,12 @@
 
 # Installation
 
-after installing the dependencies and the optional programs, just copy everything in the dotfiles folder to the ~/.config directory.
+after installing the dependencies and the optional programs, just run the script, or copy manually.
 
 ```
-$ git clone https://github.com/dyingwillow/dotfiles
+$ git clone https://github.com/dyingwillow/dotfiles-river -b laptop
 
-$ cd dotfiles
+$ cd dotfiles-river
 
-$ cp -r * ~/.config/ 
+$ ./install.sh
 ```
