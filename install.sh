@@ -17,7 +17,8 @@ sudo cp scripts/* /usr/local/bin/
 echo "done"
 echo ""
 echo "installing dotfiles"
-mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi
+mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi ~/.config/wallpapers
+cp assets/material.png ~/.config/wallpapers/material.png
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
 cp dotfiles/river/init ~/.config/river/
 cp dotfiles/waybar/config ~/.config/waybar/
