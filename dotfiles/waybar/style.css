@@ -5,17 +5,17 @@
 }
 
 window#waybar {
-	background: #edd3de;
-	color: #000000;
+	background: #0D0F17;
+	color: #ffffff;
 }
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-	color: #e8b3c9;
+	color: #ffffff;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #db95b2;
+	color: #bababa;
 }
 
 #tags, 
@@ -28,42 +28,41 @@ window#waybar {
 #battery,
 #disk
 #tray {
-        background: #edd3de;
+        background: #0D0F17;
 	
 }
 
 #tags button {
 	padding: 0 10px;
-	color: #000000;
+	color: #ffffff;
 }
 #tags button.focused {
-	color: #1a1a1a;
-	background: #e3a1bd;
+	color: #ffffff;
+	background: #FD7F83;
 }
 #tags button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #tags button:hover {
-	background: #f2a7c7;
-	border: #ffffff;
+	background: #087E8B;
 	padding: 0 10px;
 }
 
 #pulseaudio {
-	color: #1a1a1a;
+	color: #ffffff;
 }
 #memory {
-	color: #1a1a1a;
+	color: #ffffff;
 }
 #cpu {
-	color: #1a1a1a;
+	color: #ffffff;
 }
 #battery {
-	color: #1a1a1a;
+	color: #ffffff;
 }
 #disk {
-	color: #1a1a1a;
+	color: #ffffff;
 }
 
 #clock,

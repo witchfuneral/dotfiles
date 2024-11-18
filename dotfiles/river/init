@@ -1,17 +1,7 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
-
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-
-# display config
-riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@143.856003"
+# for external monitor, uncomment if docked
+# riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@143.856003"
 
 # keyboard!
 riverctl keyboard-layout tr
@@ -20,16 +10,24 @@ riverctl keyboard-layout tr
 riverctl spawn "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=river"
 riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
+# touchpad settings
+riverctl input pointer-1267-12735-ELAN0795:00_04F3:31BF_Touchpad tap enabled
+riverctl input pointer-1267-12735-ELAN0795:00_04F3:31BF_Touchpad natural-scroll enabled
+
 # control volume 
-riverctl map $mode None XF86AudioRaiseVolume  spawn 'amixer sset Master 2%+'
-riverctl map $mode None XF86AudioLowerVolume  spawn 'amixer sset Master 2%-'
-riverctl map $mode None XF86AudioMute         spawn 'amixer set Master 1+ toggle'
+riverctl map normal None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
+riverctl map normal None XF86AudioLowerVolume  spawn 'pamixer -d 5'
+riverctl map normal None XF86AudioMute         spawn 'pamixer -t'
 
 # control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
-riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
+riverctl map normal None XF86AudioMedia spawn 'playerctl play-pause'
+riverctl map normal None XF86AudioPlay  spawn 'playerctl play-pause'
+riverctl map normal None XF86AudioPrev  spawn 'playerctl previous'
+riverctl map normal None XF86AudioNext  spawn 'playerctl next'
+
+# brightness
+riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
+riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
 # start rivertile
 riverctl default-layout bsp-layout
@@ -86,10 +84,11 @@ riverctl set-repeat 50 300
 riverctl spawn mako
 riverctl spawn swww-daemon
 riverctl spawn waybar
-riverctl spawn steam
-riverctl spawn vesktop
+riverctl spawn vesktop # for running with my local dns proxy | --proxy-server=192.168.1.185:8081
+riverctl spawn dunst
 riverctl spawn ~/.apps/telegram/Telegram
-riverctl spawn spotify-launcher
+riverctl spawn "wal -i ~/Pictures/Wallpapers/material.png"
+riverctl spawn "swww img ~/Pictures/Wallpapers/material.png"
 
 # terminal
 riverctl map normal Super Return spawn kitty
@@ -98,16 +97,16 @@ riverctl map normal Super Return spawn kitty
 riverctl map normal Super D spawn wofi
 
 # file explorer
-riverctl map normal Super E spawn thunar
-
-# screenshot
-riverctl map normal Print spawn "grim $HOME/Pictures/Screenshots/Screenshot_`date +%Y%m%d-%H%M%S`.png"
+riverctl map normal Super E spawn nemo
 
 # screenshot (region)
-riverctl map normal Super+Shift S spawn "slurp | grim -g - - | wl-copy"
+riverctl map normal None Print spawn screencap
+
+# screenshot
+riverctl map normal Super+Shift S spawn screencap-region
 
 # lock screen
-riverctl map normal Super L spawn "swaylock -c 000000 -f --font 'Iosevka NF Medium'"
+riverctl map normal Super L spawn swaylock-blur
 
 # close window
 riverctl map normal Super Q close
