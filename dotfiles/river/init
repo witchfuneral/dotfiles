@@ -87,8 +87,8 @@ riverctl spawn waybar
 riverctl spawn vesktop # for running with my local dns proxy | --proxy-server=192.168.1.185:8081
 riverctl spawn dunst
 riverctl spawn ~/.apps/telegram/Telegram
-riverctl spawn "wal -i ~/Pictures/Wallpapers/material.png"
-riverctl spawn "swww img ~/Pictures/Wallpapers/material.png"
+riverctl spawn "wal -i ~/.config/wallpapers/material.png"
+riverctl spawn "swww img ~/.config/wallpapers/material.pngg"
 
 # terminal
 riverctl map normal Super Return spawn kitty
