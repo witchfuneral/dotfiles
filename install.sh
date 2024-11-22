@@ -20,6 +20,8 @@ echo "done"
 echo ""
 echo "installing dotfiles"
 mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi ~/Pictures/Wallpapers
+cp assets/material.png ~/Pictures/Wallpapers/material.png
+cp assets/gruvbox-arch.png ~/Pictures/Wallpapers/gruvbox-arch.png
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
 cp dotfiles/river/init ~/.config/river/
 cp dotfiles/waybar/config ~/.config/waybar/
