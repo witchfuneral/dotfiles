@@ -1,6 +1,6 @@
 <h1 align="center">dotfiles - river edition</h1>
 
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/laptop/assets/dotfiles-laptop.png)
+![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/laptop/assets/dotfiles-laptop-gruvbox.png)
 
 - distro: [archlinux](https://archlinux.org/)
 - window manager: [river](https://codeberg.org/river/river)
