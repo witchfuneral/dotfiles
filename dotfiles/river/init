@@ -37,8 +37,8 @@ riverctl default-layout bsp-layout
 river-bsp-layout --inner-gap 5 --outer-gap 5 --split-perc 0.5 &
 
 # borders
-riverctl border-color-focused edd3dea1
-riverctl border-color-unfocused edd3de75
+riverctl border-color-focused 181818a1
+riverctl border-color-unfocused 18181875
 
 # resize
 riverctl map normal Super+Shift Right resize horizontal -25
@@ -94,8 +94,8 @@ riverctl spawn waybar
 riverctl spawn vesktop --proxy-server=192.168.1.185:8081
 riverctl spawn dunst
 riverctl spawn ~/.apps/telegram/Telegram
-riverctl spawn "wal -i ~/Pictures/Wallpapers/material.png"
-riverctl spawn "swww img ~/Pictures/Wallpapers/material.png"
+riverctl spawn "wal -i ~/Pictures/Wallpapers/gruvbox-arch.png"
+riverctl spawn "swww img ~/Pictures/Wallpapers/gruvbox-arch.png"
 
 # terminal
 riverctl map normal Super Return spawn kitty
