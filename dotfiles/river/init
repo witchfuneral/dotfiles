@@ -3,6 +3,9 @@
 # for external monitor, uncomment if docked
 # riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@143.856003"
 
+# if i'm running this on my desktop, uncomment
+# riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@143.856003"
+
 # keyboard!
 riverctl keyboard-layout tr
 
@@ -38,22 +41,25 @@ riverctl border-color-focused edd3dea1
 riverctl border-color-unfocused edd3de75
 
 # resize
-riverctl map normal Super Right resize horizontal -25
-riverctl map normal Super Up resize vertical 25
-riverctl map normal Super Down resize vertical -25
-riverctl map normal Super Left resize horizontal 25
+riverctl map normal Super+Shift Right resize horizontal -25
+riverctl map normal Super+Shift Up resize vertical 25
+riverctl map normal Super+Shift Down resize vertical -25
+riverctl map normal Super+Shift Left resize horizontal 25
 
 # move windows
-riverctl map normal Super+Shift Left move left 25
-riverctl map normal Super+Shift Down move down 25
-riverctl map normal Super+Shift Up move up 25
-riverctl map normal Super+Shift Right move right 25
+riverctl map normal Super Left move left 25
+riverctl map normal Super Down move down 25
+riverctl map normal Super Up move up 25
+riverctl map normal Super Right move right 25
 
 # snap
 riverctl map normal Super+Alt Left snap left
 riverctl map normal Super+Alt Down snap down
 riverctl map normal Super+Alt Up snap up
 riverctl map normal Super+Alt Right snap right
+
+# reverse window layout
+riverctl map normal Super Tab spawn "riverctl send-layout-cmd bsp-layout '--reverse'"
 
 # lifted from example river config
 
@@ -84,11 +90,12 @@ riverctl set-repeat 50 300
 riverctl spawn mako
 riverctl spawn swww-daemon
 riverctl spawn waybar
-riverctl spawn vesktop # for running with my local dns proxy | --proxy-server=192.168.1.185:8081
+# i have to run vesktop with a proxy
+riverctl spawn vesktop --proxy-server=192.168.1.185:8081
 riverctl spawn dunst
 riverctl spawn ~/.apps/telegram/Telegram
-riverctl spawn "wal -i ~/.config/wallpapers/material.png"
-riverctl spawn "swww img ~/.config/wallpapers/material.pngg"
+riverctl spawn "wal -i ~/Pictures/Wallpapers/material.png"
+riverctl spawn "swww img ~/Pictures/Wallpapers/material.png"
 
 # terminal
 riverctl map normal Super Return spawn kitty
