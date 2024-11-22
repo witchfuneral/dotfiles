@@ -5,17 +5,24 @@
 }
 
 window#waybar {
-	background: #0D0F17;
+	background: #181818;
 	color: #ffffff;
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
+#custom-right-arrow-one {
 	color: #ffffff;
 }
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: #bababa;
+
+#custom-right-arrow-two {
+	color: #ffffff;
+}
+
+#custom-left-arrow-one {
+	color: #ffffff;
+}
+
+#custom-left-arrow-two {
+	color: #ffffff;
 }
 
 #tags, 
@@ -28,8 +35,8 @@ window#waybar {
 #battery,
 #disk
 #tray {
-        background: #0D0F17;
-	
+        background: #181818;
+	color: #ffffff;
 }
 
 #tags button {
@@ -37,15 +44,16 @@ window#waybar {
 	color: #ffffff;
 }
 #tags button.focused {
-	color: #ffffff;
-	background: #FD7F83;
+	color: #282828;
+	background: #ebdbb2;
 }
 #tags button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #tags button:hover {
-	background: #087E8B;
+	background: #ebdbb2;
+	color: #282828;
 	padding: 0 10px;
 }
 

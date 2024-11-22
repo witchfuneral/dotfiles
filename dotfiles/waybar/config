@@ -13,19 +13,25 @@
 		"custom/spotify",
 	],
 	"modules-center": [
-		"custom/left-arrow",
-		"clock#1",
+		"custom/left-arrow-one",
+		"custom/left-arrow-two",
+		"custom/spacer",
 		"custom/tree",
+		"clock#1",
+		"custom/separator",
 		"clock#2",
-		"custom/moon",
+		"custom/separator",
 		"clock#3",
-		"custom/right-arrow"
+		"custom/moon",
+		"custom/spacer",
+		"custom/right-arrow-one",
+		"custom/right-arrow-two"
 	],
 	"modules-right": [
 		"tray",
-		"custom/spacer",
-		"network",
                 "custom/spacer",
+		"network",
+		"custom/spacer",
 		"bluetooth",
                 "custom/spacer",
 		"battery",
@@ -41,21 +47,30 @@
 	],
 
 	"custom/moon": {
-		"format": " ",
+		"format": "  ",
 		"tooltip": false
 	},
 	"custom/tree": {
-		"format": "󰐅 ",
+		"format": " 󰐅 ",
 		"tooltip": false
 	},
-	"custom/left-arrow": {
-		"format": " ",
+	"custom/left-arrow-one": {
+		"format": "",
 		"tooltip": false
 	},
-	"custom/right-arrow": {
-		"format": " ",
+	"custom/right-arrow-one": {
+		"format": "",
 		"tooltip": false
 	},
+
+	"custom/left-arrow-two": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-two": {
+		"format": "",
+		"tooltip": false
+	}, 
 
 	"custom/spacer": {
                 "format": " ",
@@ -66,14 +81,14 @@
 		"tooltip":  false
 	},
 	"river/tags": {
-		"num-tags": 8,
-		"tag-labels": [" ", "󰖟 ", "󰎇", "󰺶 ", " ", " ", " ", " "],
+		"num-tags": 9,
+		"tag-labels": ["󰣇 ", " ", "󰖟 ", "󰎇", "󰺶 ", " ", " ", " ", " "],
 		"disable-scroll": true,
 		"format": "{name}"
 	},
 
 	"clock#1": {
-		"format": "󰃭 {:%a}",
+		"format": " {:%a} 󰃭 ",
 		"tooltip": false
 	},
 	"clock#2": {
@@ -81,7 +96,7 @@
 		"tooltip": false
 	},
 	"clock#3": {
-		"format": "{:%H:%M}  ",
+		"format": "   {:%H:%M}",
 		"tooltip": false
 	},
 
@@ -160,4 +175,5 @@
     "on-scroll-down": "playerctl previous",
     "max-length": 40
 },
+
 }
