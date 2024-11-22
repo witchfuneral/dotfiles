@@ -14,11 +14,12 @@ echo "done"
 echo ""
 echo "installing scripts to path, root required again"
 sudo cp scripts/* /usr/local/bin/
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo "done"
 echo ""
 echo "installing dotfiles"
-mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi ~/.config/wallpapers
-cp assets/material.png ~/.config/wallpapers/material.png
+mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi ~/Pictures/Wallpapers
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
 cp dotfiles/river/init ~/.config/river/
 cp dotfiles/waybar/config ~/.config/waybar/
