@@ -9,7 +9,7 @@
 - file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
-- editor: [nano](https://archlinux.org/packages/core/x86_64/nano/)
+- editor: [neovim](https://archlinux.org/packages/extra/x86_64/nano/)
 - ide: [visual studio code](https://github.com/microsoft/vscode)
 - font: [fira code nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
 - *fetch: [hyfetch](https://github.com/hykilpikonna/hyfetch)
