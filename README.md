@@ -1,6 +1,6 @@
 <h1 align="center">dotfiles - river edition</h1>
 
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/laptop/assets/dotfiles-laptop-gruvbox.png)
+![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/laptop/assets/dotfiles-desktop.png)
 
 - distro: [archlinux](https://archlinux.org/)
 - window manager: [river](https://codeberg.org/river/river)
@@ -9,9 +9,9 @@
 - file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
-- editor: [neovim](https://archlinux.org/packages/extra/x86_64/nano/)
+- editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
 - ide: [visual studio code](https://github.com/microsoft/vscode)
-- font: [fira code nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
+- font: [iosevka nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
 - *fetch: [hyfetch](https://github.com/hykilpikonna/hyfetch)
 
 ## Dependencies
@@ -27,15 +27,17 @@
 - kitty
 - nemo
 - polkit-gnome
-- xdg-desktop-portal & xdg-desktop-portal-wlr 
+- xdg-desktop-portal & xdg-desktop-portal-hyprland
 - gnome-keyring
-- mako
+- dunst
 - swww
 
 # Optional
 - flatpak
 - [telegram](https://desktop.telegram.org/)
 - steam
+- firefox
+- [feishin](https://github.com/jeffvli/feishin)
 
 # Installation
 
