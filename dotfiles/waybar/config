@@ -176,7 +176,7 @@
 },
 
 "custom/music": {
-    "exec": "mediaplayer",
+    "exec": "mediaplayer --player Feishin",
     "format": "󰎆 {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
