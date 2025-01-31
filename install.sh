@@ -19,7 +19,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 echo "done"
 echo ""
 echo "installing dotfiles"
-mkdir -p ~/.config/kitty ~/.config/river ~/.config/walls ~/.config/waybar ~/.config/wofi ~/Pictures/Wallpapers
+mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/Pictures/Wallpapers
 cp assets/material.png ~/Pictures/Wallpapers/material.png
 cp assets/gruvbox-arch.png ~/Pictures/Wallpapers/gruvbox-arch.png
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
