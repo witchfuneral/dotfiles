@@ -11,8 +11,8 @@ margin-bottom: 1px;
 }
 
 #entry:selected {
-background-color: #ebdbb2;
-color: #282828;
+background-color: #ffffff;
+color: #000000;
 }
  
 #text {
@@ -30,8 +30,8 @@ color: #000000;
  
 
 #input {
-border: 1px solid #282828;
-background-color: #282828;
+border: 1px solid #000000;
+background-color: #000000;
 padding: 5px;
 font-size: 13px;
 border-radius: 2px;
@@ -44,8 +44,8 @@ color: #ffffff;
     padding: 0px;
     border-radius:2px;
     border-width: 1px;
-    border:1px solid #282828;
-    background-color: #282828;
+    border:1px solid #000000;
+    background-color: #000000;
 }
 
 #outer-box {

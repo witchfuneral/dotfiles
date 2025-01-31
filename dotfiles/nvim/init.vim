@@ -1,5 +1,5 @@
 set number
-autocmd vimenter * ++nested colorscheme retrobox
+autocmd vimenter * ++nested colorscheme pywal
 call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'francoiscabrol/ranger.vim'
@@ -8,4 +8,5 @@ call plug#begin()
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'rbgrouleff/bclose.vim'
 	Plug 'ellisonleao/gruvbox.nvim'
+	Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 call plug#end()

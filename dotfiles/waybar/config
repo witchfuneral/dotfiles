@@ -10,7 +10,7 @@
 		"custom/separator",
 		"custom/spacer",
 		"custom/spacer",
-		"custom/spotify",
+		"river/window",
 	],
 	"modules-center": [
 		"custom/left-arrow-one",
@@ -28,8 +28,15 @@
 		"custom/right-arrow-two"
 	],
 	"modules-right": [
+		"custom/music",
+		"custom/spacer",
+		"custom/separator",
+		"custom/spacer",
 		"tray",
-                "custom/spacer",
+		"custom/spacer",
+                "custom/separator",
+		"custom/spacer",
+		"custom/spacer",
 		"network",
 		"custom/spacer",
 		"bluetooth",
@@ -82,7 +89,7 @@
 	},
 	"river/tags": {
 		"num-tags": 9,
-		"tag-labels": ["󰣇 ", " ", "󰖟 ", "󰎇", "󰺶 ", " ", " ", " ", " "],
+		"tag-labels": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
 		"disable-scroll": true,
 		"format": "{name}"
 	},
@@ -129,7 +136,8 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 20
+		"icon-size": 18,
+		"spacing": 10,
 	},
 	"battery": {
 		"bat": "BAT0",
@@ -154,10 +162,11 @@
 },
 
 "network": {
-    "interface": "wlo1",
+    "interface": "enp42s0",
+    // "interface": wlp46s0,
     "format": "{essid} ",
     "format-wifi": "󰤨  {essid} ",
-    "format-ethernet": "󰈀 {ifname} ",
+    "format-ethernet": "󰈀  connected ",
     "format-disconnected": "󰤯  disconnected ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -166,14 +175,19 @@
     "max-length": 50
 },
 
-"custom/spotify": {
-    "exec": "mediaplayer --player spotify",
-    "format": "  {}",
+"custom/music": {
+    "exec": "mediaplayer",
+    "format": "󰎆 {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "max-length": 40
+    "max-length": 25
 },
+
+"river/window": {
+    "format": "{}",
+    "max-length": 25
+}
 
 }

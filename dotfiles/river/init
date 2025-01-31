@@ -4,10 +4,13 @@
 # riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@143.856003"
 
 # if i'm running this on my desktop, uncomment
-# riverctl spawn "wlr-randr --output DP-1 --mode 1920x1080@143.856003"
+riverctl spawn "wlr-randr --output DP-2 --mode 1920x1080@143.856003"
 
 # keyboard!
 riverctl keyboard-layout tr
+
+# mouse!
+riverctl input "Logitech G502 HERO Gaming Mouse" accel-profile none
 
 # start up important backends
 riverctl spawn "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=river"
@@ -63,20 +66,20 @@ riverctl map normal Super Tab spawn "riverctl send-layout-cmd bsp-layout '--reve
 
 # lifted from example river config
 
-for i in $(seq 1 9)
+for i in $(seq 1 10)
 do
     tags=$((1 << ($i - 1)))
 
-    # Super+[1-9] to focus tag [0-8]
+    # Super+[1-0] to focus tag [0-9]
     riverctl map normal Super $i set-focused-tags $tags
 
-    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    # Super+Shift+[1-0] to tag focused view with tag [0-9]
     riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    # Super+Control+[1-0] to toggle focus of tag [0-9]
     riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    # Super+Shift+Control+[1-0] to toggle tag [0-9] of focused view
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
@@ -93,9 +96,9 @@ riverctl spawn waybar
 # i have to run vesktop with a proxy
 riverctl spawn vesktop --proxy-server=192.168.1.185:8081
 riverctl spawn dunst
-riverctl spawn ~/.apps/telegram/Telegram
-riverctl spawn "wal -i ~/Pictures/Wallpapers/gruvbox-arch.png"
-riverctl spawn "swww img ~/Pictures/Wallpapers/gruvbox-arch.png"
+riverctl spawn "wal -i ~/Pictures/Wallpapers/frozen.jpg"
+riverctl spawn "swww img ~/Pictures/Wallpapers/frozen.jpg"
+riverctl spawn "systemctl --user start xdg-desktop-portal-hyprland"
 
 # terminal
 riverctl map normal Super Return spawn kitty

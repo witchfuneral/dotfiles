@@ -1,11 +1,11 @@
 * {
-	min-height: 32px;
+	min-height: 34px;
 	font-size: 15px;
-	font-family: Iosevka NF Medium;
+	font-family: Iosevka NF SemiBold;
 }
 
 window#waybar {
-	background: #181818;
+	background: #000000;
 	color: #ffffff;
 }
 
@@ -35,7 +35,7 @@ window#waybar {
 #battery,
 #disk
 #tray {
-        background: #181818;
+        background: #000000;
 	color: #ffffff;
 }
 
@@ -44,18 +44,25 @@ window#waybar {
 	color: #ffffff;
 }
 #tags button.focused {
-	color: #282828;
-	background: #ebdbb2;
+	color: #000000;
+	background: #BBF1F1;
 }
 #tags button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #tags button:hover {
-	background: #ebdbb2;
-	color: #282828;
+	background: #ffffff;
+	color: #000000;
 	padding: 0 10px;
 }
+
+#tags button.occupied {
+	color: #008080
+
+}
+
+#tags button.
 
 #pulseaudio {
 	color: #ffffff;
