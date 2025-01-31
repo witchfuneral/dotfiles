@@ -44,7 +44,7 @@
 after installing the dependencies and the optional programs, just run the script, or copy manually.
 
 ```
-$ git clone https://github.com/dyingwillow/dotfiles-river -b laptop
+$ git clone https://github.com/dyingwillow/dotfiles-river
 
 $ cd dotfiles-river
 
