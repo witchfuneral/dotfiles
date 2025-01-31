@@ -4,13 +4,13 @@
 # riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@143.856003"
 
 # if i'm running this on my desktop, uncomment
-riverctl spawn "wlr-randr --output DP-2 --mode 1920x1080@143.856003"
+# riverctl spawn "wlr-randr --output DP-2 --mode 1920x1080@143.856003"
 
 # keyboard!
 riverctl keyboard-layout tr
 
-# mouse!
-riverctl input "Logitech G502 HERO Gaming Mouse" accel-profile none
+# mouse! (desktop)
+# riverctl input "Logitech G502 HERO Gaming Mouse" accel-profile none
 
 # start up important backends
 riverctl spawn "dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=river"
@@ -35,7 +35,7 @@ riverctl map normal None XF86AudioNext  spawn 'playerctl next'
 riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
 riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
-# start rivertile
+# start river-bsp
 riverctl default-layout bsp-layout
 river-bsp-layout --inner-gap 5 --outer-gap 5 --split-perc 0.5 &
 
@@ -90,7 +90,6 @@ riverctl map normal Super+Shift Tab toggle-float
 riverctl set-repeat 50 300
 
 # autostart
-riverctl spawn mako
 riverctl spawn swww-daemon
 riverctl spawn waybar
 # i have to run vesktop with a proxy
