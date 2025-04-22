@@ -1,6 +1,4 @@
-<h1 align="center">dotfiles - river edition</h1>
-
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/main/assets/dotfiles-desktop.png)
+![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/main/assets/dotfiles-laptop.png)
 
 - distro: [archlinux](https://archlinux.org/)
 - window manager: [river](https://codeberg.org/river/river)
@@ -10,9 +8,9 @@
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
 - editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
-- ide: [visual studio code](https://github.com/microsoft/vscode)
+- ide: [codium](https://vscodium.com/)
 - font: [iosevka nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
-- *fetch: [hyfetch](https://github.com/hykilpikonna/hyfetch)
+- *fetch: [pfetch](https://github.com/Un1q32/pfetch)
 
 ## Dependencies
 
@@ -27,10 +25,13 @@
 - kitty
 - nemo
 - polkit-gnome
-- xdg-desktop-portal & xdg-desktop-portal-hyprland
+- xdg-desktop-portal
+- xdg-desktop-portal-wlr (screencast)
+- xdg-desktop-portal-gtk (file chooser)
 - gnome-keyring
 - dunst
 - swww
+- nwg-look
 
 # Optional
 - flatpak
