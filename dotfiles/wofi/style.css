@@ -11,14 +11,14 @@ margin-bottom: 1px;
 }
 
 #entry:selected {
-background-color: #ffffff;
+background-color: #ADFF2F;
 color: #000000;
 }
  
 #text {
 padding: 8px;
 font-size: 13px;
-color:#ffffff;
+color:ADFF2FF;
 background-color: transparent;
 } 
 
@@ -35,12 +35,12 @@ background-color: #000000;
 padding: 5px;
 font-size: 13px;
 border-radius: 2px;
-color: #ffffff;
+color: #ADFF2F;
 }
 
 #inner-box {
     margin-top: 10px;
-    color: #ffffff;
+    color: #FFFFFF;
     padding: 0px;
     border-radius:2px;
     border-width: 1px;
@@ -51,7 +51,7 @@ color: #ffffff;
 #outer-box {
 margin: 0px;
 background-color: transparent;
-color: #ffffff;
+color: #ADFF2F;
 }
 
 #scroll {
