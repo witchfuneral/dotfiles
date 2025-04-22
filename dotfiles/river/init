@@ -97,8 +97,8 @@ riverctl set-repeat 50 300
 riverctl spawn swww-daemon
 riverctl spawn waybar
 riverctl spawn dunst
-riverctl spawn "wal -i ~/Pictures/Wallpapers/gnugeneration-alt.png"
-riverctl spawn "swww img ~/Pictures/Wallpapers/gnu-generation-alt.png"
+riverctl spawn "wal -i ~/Pictures/Wallpapers/gnugeneration.png"
+riverctl spawn "swww img ~/Pictures/Wallpapers/gnugeneration.png"
 riverctl spawn "systemctl --user start xdg-desktop-portal-wlr"
 
 # terminal
