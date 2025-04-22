@@ -44,21 +44,21 @@ window#waybar {
 	color: #ffffff;
 }
 #tags button.focused {
-	color: #000000;
-	background: #BBF1F1;
+	color: #ADFF2F;
+	background: #041c01;
 }
 #tags button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #tags button:hover {
-	background: #ffffff;
-	color: #000000;
+	background: #1f1f1f;
+	color: #adff2f;
 	padding: 0 10px;
 }
 
 #tags button.occupied {
-	color: #008080
+	color: #ADFF2F
 
 }
 

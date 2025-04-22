@@ -10,7 +10,7 @@
 		"custom/separator",
 		"custom/spacer",
 		"custom/spacer",
-		"river/window",
+		"custom/music",
 	],
 	"modules-center": [
 		"custom/left-arrow-one",
@@ -28,9 +28,6 @@
 		"custom/right-arrow-two"
 	],
 	"modules-right": [
-		"custom/music",
-		"custom/spacer",
-		"custom/separator",
 		"custom/spacer",
 		"tray",
 		"custom/spacer",
@@ -38,19 +35,10 @@
 		"custom/spacer",
 		"custom/spacer",
 		"network",
-		"custom/spacer",
-		"bluetooth",
-                "custom/spacer",
-		"battery",
-                "custom/spacer",
 		"pulseaudio",
+		"bluetooth",
+		"battery",
 		"custom/spacer",
-		"memory",
-		"custom/spacer",
-		"cpu",
-		"custom/spacer",
-		"disk",
-		"custom/spacer"
 	],
 
 	"custom/moon": {
@@ -88,8 +76,8 @@
 		"tooltip":  false
 	},
 	"river/tags": {
-		"num-tags": 9,
-		"tag-labels": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+		"num-tags": 6,
+		"tag-labels": ["1", "2", "3", "4", "5", "6"],
 		"disable-scroll": true,
 		"format": "{name}"
 	},
@@ -108,7 +96,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
+		"format": "{icon}",
 		"format-bluetooth": "{icon}  {volume}%",
 		"format-muted": "󰝟 muted",
 		"format-icons": {
@@ -146,28 +134,27 @@
         		"warning": 30,
         		"critical": 15
     		},
-    	"format": "{capacity}% {icon}",
+    	"format": "{icon}  {capacity}%",
    	"format-icons": ["", "", "", "", ""],
     	"max-length": 25
 },
 
 "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": " {status}",
+	"format": "",
 	"format-disabled": "", // an empty format will hide the module
-	"format-connected": " {num_connections} connected",
+	"format-connected": "",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
 },
 
 "network": {
-    "interface": "enp42s0",
+    "interface": "wlo1",
     // "interface": wlp46s0,
-    "format": "{essid} ",
-    "format-wifi": "󰤨  {essid} ",
-    "format-ethernet": "󰈀  connected ",
-    "format-disconnected": "󰤯  disconnected ",
+    "format-wifi": "󰤨 ",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤯 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} ",
