@@ -24,7 +24,8 @@
 - waybar
 - kitty
 - nemo
-- polkit-gnome
+- mate-polkit
+- engrampa
 - xdg-desktop-portal
 - xdg-desktop-portal-wlr (screencast)
 - xdg-desktop-portal-gtk (file chooser)
