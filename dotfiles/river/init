@@ -7,7 +7,7 @@
 # riverctl spawn "wlr-randr --output DP-2 --mode 1920x1080@143.856003"
 
 # laptop scaling
-# riverctl spawn "wlr-randr --output eDP-1 --scale 1.18"
+riverctl spawn "wlr-randr --output eDP-1 --scale 1.25"
 
 # keyboard!
 riverctl keyboard-layout tr
@@ -49,8 +49,8 @@ riverctl border-color-unfocused 18181875
 
 # resize
 riverctl map normal Super+Shift Right resize horizontal -25
-riverctl map normal Super+Shift Up resize vertical 25
-riverctl map normal Super+Shift Down resize vertical -25
+riverctl map normal Super+Shift Up resize vertical 25 
+riverctl map normal Super+Shift Down resize vertical -25 
 riverctl map normal Super+Shift Left resize horizontal 25
 
 # move windows
@@ -97,8 +97,8 @@ riverctl set-repeat 50 300
 riverctl spawn swww-daemon
 riverctl spawn waybar
 riverctl spawn dunst
-riverctl spawn "wal -i ~/Pictures/Wallpapers/OBTQ.jpg"
-riverctl spawn "swww img ~/Pictures/Wallpapers/OBTQ.jpg"
+riverctl spawn "wal -i ~/Pictures/Wallpapers/gnugeneration-alt.png"
+riverctl spawn "swww img ~/Pictures/Wallpapers/gnu-generation-alt.png"
 riverctl spawn "systemctl --user start xdg-desktop-portal-wlr"
 
 # terminal
