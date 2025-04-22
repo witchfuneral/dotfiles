@@ -19,7 +19,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 echo "done"
 echo ""
 echo "installing dotfiles"
-mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/.config/nvim ~/Pictures/Wallpapers
+mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/.config/nvim ~/.config/dunst ~/Pictures/Wallpapers
 cp assets/material.png ~/Pictures/Wallpapers/material.png
 cp assets/gruvbox-arch.png ~/Pictures/Wallpapers/gruvbox-arch.png
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
@@ -28,6 +28,8 @@ cp dotfiles/waybar/config ~/.config/waybar/
 cp dotfiles/waybar/style.css ~/.config/waybar/
 cp dotfiles/wofi/config ~/.config/wofi/
 cp dotfiles/wofi/style.css ~/.config/wofi/
+cp dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+cp dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
 echo "installing vim-plug for neovim plugins"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
