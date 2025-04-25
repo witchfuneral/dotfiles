@@ -2,6 +2,24 @@
 # ~ installer for my dotfiles ~ 
 # pretty dogshit script, sorry!
 
+dependency-install () {
+# install only the dependencies
+  sudo pacman -S river wl-clipboard swaylock grim slurp imagemagick python-pywal waybar kitty nemo mate-polkit engrampa xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst swww nwg-look
+}
+
+while true; do
+        read -p "install listed dependencies? (check readme for detailed list) (y/n): " yn
+    case $yn in
+        [Yy]* ) dependency-install; break;;
+        [Nn]* ) break;;
+        * ) echo "invalid answer, please answer (y/n): ";;
+    esac
+done
+
+echo "dependencies installed."
+
+# installing river-bsp-layout
+
 echo "downloading latest river-bsp-layout"
 mkdir /tmp/dotfiles
 wget https://github.com/areif-dev/river-bsp-layout/releases/latest/download/river-bsp-layout-x86_64-unknown-linux-gnu.tar.gz -O /tmp/dotfiles/river.tar.gz
@@ -11,16 +29,30 @@ echo ""
 echo "copying river-bsp-layout to your path, root required :("
 sudo cp /tmp/dotfiles/river-bsp-layout-x86_64-unknown-linux-gnu /usr/local/bin/river-bsp-layout
 echo "done"
+
+# installing dotfiles
+# 1 - scripts
+
 echo ""
 echo "installing scripts to path, root required again"
 sudo cp scripts/* /usr/local/bin/
+
+# 2 - neovim
+
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo "done"
+
+# 3 - directories
+
 echo ""
 echo "installing dotfiles"
 mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers
-cp assets/walls/* ~/Pictures/Wallpapers/gnugeneration.png
+
+# 3a - wallpaper
+cp assets/walls/* ~/Pictures/Wallpapers/
+
+# 3b - actual dotfiles
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
 cp dotfiles/river/init ~/.config/river/
 cp dotfiles/waybar/config ~/.config/waybar/
@@ -30,8 +62,7 @@ cp dotfiles/wofi/style.css ~/.config/wofi/
 cp dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 cp dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
 cp dotfiles/xdg-desktop-portal/portals.conf ~/.config/xdg-desktop-portal/portals.conf
-echo "installing vim-plug for neovim plugins"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo "dotfiles installed!"
+
+# delete temp files
 rm -rf /tmp/dotfiles
