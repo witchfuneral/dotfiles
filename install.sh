@@ -4,7 +4,7 @@
 
 dependency-install () {
 # install only the dependencies
-  sudo pacman -S river wl-clipboard swaylock grim slurp imagemagick python-pywal waybar kitty nemo mate-polkit engrampa xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst swww nwg-look
+  sudo pacman -S river wl-clipboard swaylock curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer zsh grim slurp imagemagick python-pywal waybar kitty nemo mate-polkit engrampa xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst swww nwg-look
 }
 
 while true; do
@@ -46,7 +46,7 @@ echo "done"
 # 3 - directories
 
 echo ""
-echo "installing dotfiles"
+echo "creating directories"
 mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers
 
 # 3a - wallpaper
