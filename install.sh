@@ -49,10 +49,17 @@ echo ""
 echo "creating directories"
 mkdir -p ~/.config/kitty ~/.config/river ~/Pictures/Screenshots ~/.config/waybar ~/.config/wofi ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers
 
-# 3a - wallpaper
+# 4 - oh-my-zsh
+git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+cp dotfiles/zshrc ~/.zshrc
+chsh -s /usr/bin/zsh
+
+# 5a - wallpaper
 cp assets/walls/* ~/Pictures/Wallpapers/
 
-# 3b - actual dotfiles
+# 5b - actual dotfiles
 cp dotfiles/kitty/kitty.conf ~/.config/kitty/
 cp dotfiles/river/init ~/.config/river/
 cp dotfiles/waybar/config ~/.config/waybar/
