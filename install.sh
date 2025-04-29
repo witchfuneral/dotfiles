@@ -54,7 +54,8 @@ git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 cp dotfiles/zshrc ~/.zshrc
-chsh -s /usr/bin/zsh
+# change shell for current user
+sudo sed -i "s,$USER:/usr/bin/bash,$USER:/usr/bin/zsh,g" /etc/passwd
 
 # 5a - wallpaper
 cp assets/walls/* ~/Pictures/Wallpapers/
