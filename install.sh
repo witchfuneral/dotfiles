@@ -4,7 +4,7 @@
 
 dependency-install () {
 # install only the dependencies
-  sudo pacman -S sway swaylock wl-clipboard swaylock curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty nemo mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd --no-confirm
+  sudo pacman -S sway swaylock wl-clipboard swaylock curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty nemo mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd wmenu --no-confirm
 }
 
 while true; do
