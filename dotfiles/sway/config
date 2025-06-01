@@ -15,10 +15,10 @@ output "DP-3" {
 }
 
 # for laptop
-#output * {
-#    scale 1.25
-#    bg $HOME/Pictures/Wallpapers/arch-nb.png fill
-#}
+output eDP-1 {
+    scale 1.25
+    bg $HOME/Pictures/Wallpapers/arch-nb.png fill
+}
 
 bar { 
      swaybar_command waybar
@@ -29,41 +29,53 @@ input * {
 }
 
 set $menu 'wmenu-run -N 000000 -n adff2f -M 000000 -m adff2f -S adff2f -s 000000 -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 11.5"'
-set $quitsway "killall sway"
 
+# for my mx master
 input 1133:16489:Logitech_MX_Master_2S {
     natural_scroll enabled
     accel_profile "flat"
 }
 
+# laptop touchpad
+input 1267:12735:ELAN0795:00_04F3:31BF_Touchpad {
+    natural_scroll enabled
+    dwt enabled
+    tap enabled
+    tap_button_map lrm
+    drag enabled
+}
+
+# use keyboard as mouse
 mode Mouse {
     bindsym e mode default, exec 'wl-kbptr-sway-active-win; swaymsg mode Mouse'
     bindsym Shift+e mode default, exec 'wl-kbptr; swaymsg mode Mouse'
 
-    # Mouse move
+    # move "mouse"
     bindsym a seat seat0 cursor move -15 0
     bindsym s seat seat0 cursor move 0 15
     bindsym w seat seat0 cursor move 0 -15
     bindsym d seat seat0 cursor move 15 0
 
-    # Left button
+    # mouse left button
     bindsym z seat seat0 cursor press button1
     bindsym --release z seat seat0 cursor release button1
 
-    # Middle button
+    # mouse middle button
     bindsym x seat seat0 cursor press button2
     bindsym --release x seat seat0 cursor release button2
 
-    # Right button
+    # mouse right button
     bindsym c seat seat0 cursor press button3
     bindsym --release c seat seat0 cursor release button3
-
+    
+    # exit mouse mode
     bindsym Escape mode default
 }
-
+# more mouse mode
 bindsym $mod+g exec wl-kbptr-sway-active-win -o modes=floating','click -o mode_floating.source=detect
 bindsym $mod+Shift+g mode Mouse
 
+# colors
 set $border #041c01
 set $background #041c01
 set $font #adff2f
@@ -71,28 +83,30 @@ set $unfocused #0a0a0a
 set $unfocused_font #a3a3a3
 set $urgent #121212
 set $urgent_font #b01729
-
+# for window titles
 client.background       $border $background $font
 client.focused          $border $background $font
 client.focused_inactive  $border $background $font
 client.unfocused        $unfocused $unfocused $unfocused_font
 client.urgent          $urgent $urgent $urgent_font
 
-input <identifier> xkb_model "pc101"
-
 font pango:JetBrainsMonoNL Nerd Font Propo 10
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 
 # volume adjustment
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-exec wal -i ~/Pictures/Wallpapers/mojave.png
+# media player
+bindsym XF86AudioMedia exec playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+# brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 gaps inner 2
 gaps outer 2
@@ -178,9 +192,6 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
-# quit sway
-bindsym $mod+Shift+q $quitsway
 
 # move to scratchpad
 bindsym $mod+Shift+h move scratchpad
