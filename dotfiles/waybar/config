@@ -1,71 +1,30 @@
 // -*- mode: json -*-
 
 {
-	"layer": "top",
-	"position": "top",
+	"layer": "bottom",
+	"position": "bottom",
 
 	"modules-left": [
-		"river/tags",
-		"custom/spacer",
-		"custom/separator",
+		"sway/workspaces",
 		"custom/spacer",
 		"custom/spacer",
-		"custom/music",
 	],
 	"modules-center": [
-		"custom/left-arrow-one",
-		"custom/left-arrow-two",
-		"custom/spacer",
-		"custom/tree",
-		"clock#1",
-		"custom/separator",
-		"clock#2",
-		"custom/separator",
-		"clock#3",
-		"custom/moon",
-		"custom/spacer",
-		"custom/right-arrow-one",
-		"custom/right-arrow-two"
+		"custom/music",
 	],
 	"modules-right": [
-		"custom/spacer",
 		"tray",
 		"custom/spacer",
-                "custom/separator",
+		"custom/separator",
 		"custom/spacer",
-		"custom/spacer",
-		"network",
 		"pulseaudio",
 		"bluetooth",
 		"battery",
 		"custom/spacer",
+		"clock#date",
+		"clock",
+		"custom/spacer",
 	],
-
-	"custom/moon": {
-		"format": "  ",
-		"tooltip": false
-	},
-	"custom/tree": {
-		"format": " 󰐅 ",
-		"tooltip": false
-	},
-	"custom/left-arrow-one": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-one": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/left-arrow-two": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-two": {
-		"format": "",
-		"tooltip": false
-	}, 
 
 	"custom/spacer": {
                 "format": " ",
@@ -75,24 +34,23 @@
 		"format": "|",
 		"tooltip":  false
 	},
-	"river/tags": {
-		"num-tags": 6,
-		"tag-labels": ["1", "2", "3", "4", "5", "6"],
-		"disable-scroll": true,
-		"format": "{name}"
+	"sway/workspaces": {
+    		"disable-scroll": true,
+    		"all-outputs": true,
+    		"format": "{name}",
+        	"urgent": "",
+        	"focused": "",
+        	"default": "",
+        	"high-priority-named": ["1", "2", "3", "4", "5", "6"],
 	},
 
-	"clock#1": {
-		"format": " {:%a} 󰃭 ",
-		"tooltip": false
+	"clock#date": {
+		"format": "{:%y-%m-%d}",
+		"tooltip": false,
 	},
-	"clock#2": {
-		"format": "{:%m-%d}",
-		"tooltip": false
-	},
-	"clock#3": {
-		"format": "   {:%H:%M}",
-		"tooltip": false
+	"clock": {
+		"format": "{:%H:%M:%S}",
+		"interval": 1,
 	},
 
 	"pulseaudio": {
@@ -124,7 +82,7 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 18,
+		"icon-size": 16,
 		"spacing": 10,
 	},
 	"battery": {
@@ -169,12 +127,13 @@
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "max-length": 25
+    "max-length": 50
 },
 
-"river/window": {
-    "format": "{}",
-    "max-length": 25
+"custom/launcherbutton": {
+    "format": "             Start",
+    "tooltip": false,
+    "on-click": "exec wofi --show drun"
 }
 
 }

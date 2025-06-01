@@ -1,7 +1,7 @@
 * {
-	min-height: 34px;
-	font-size: 15px;
-	font-family: Iosevka NF SemiBold;
+	min-height: 22px;
+	font-size: 14px;
+	font-family: "JetBrainsMonoNL Nerd Font Propo";
 }
 
 window#waybar {
@@ -25,7 +25,7 @@ window#waybar {
 	color: #ffffff;
 }
 
-#tags, 
+#workspaces, 
 #clock.1,
 #clock.2,
 #clock.3,
@@ -39,30 +39,28 @@ window#waybar {
 	color: #ffffff;
 }
 
-#tags button {
+#workspaces button {
 	padding: 0 10px;
 	color: #ffffff;
 }
-#tags button.focused {
+#workspaces button.focused {
 	color: #ADFF2F;
 	background: #041c01;
 }
-#tags button:hover {
+#workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
-#tags button:hover {
+#workspaces button:hover {
 	background: #1f1f1f;
 	color: #adff2f;
 	padding: 0 10px;
 }
 
-#tags button.occupied {
+#workspaces button.occupied {
 	color: #ADFF2F
 
 }
-
-#tags button.
 
 #pulseaudio {
 	color: #ffffff;
