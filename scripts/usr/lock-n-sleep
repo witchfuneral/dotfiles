@@ -1,0 +1,5 @@
+#!/bin/sh
+sleep 1
+swaylock-blur
+sleep 1.5
+systemctl suspend
