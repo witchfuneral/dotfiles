@@ -1,0 +1,211 @@
+# my sway config
+
+set $mod Mod4
+
+output "DP-3" {
+    mode  1920x1080@143.856Hz
+    pos 0 0
+    transform normal
+    scale 1.0
+    scale_filter nearest
+    adaptive_sync off
+    dpms on
+    bg /home/ada/Documents/Projects/desktopwall-nb.png fill
+}
+
+bar { 
+     swaybar_command waybar
+}
+
+input * {
+    xkb_layout "tr"
+}
+
+set $menu 'wmenu-run -N 000000 -n adff2f -M 000000 -m adff2f -S adff2f -s 000000 -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 11.5"'
+set $quitsway "killall sway"
+
+input 1133:16489:Logitech_MX_Master_2S {
+    natural_scroll enabled
+    accel_profile "flat"
+}
+
+mode Mouse {
+    bindsym e mode default, exec 'wl-kbptr-sway-active-win; swaymsg mode Mouse'
+    bindsym Shift+e mode default, exec 'wl-kbptr; swaymsg mode Mouse'
+
+    # Mouse move
+    bindsym a seat seat0 cursor move -15 0
+    bindsym s seat seat0 cursor move 0 15
+    bindsym w seat seat0 cursor move 0 -15
+    bindsym d seat seat0 cursor move 15 0
+
+    # Left button
+    bindsym z seat seat0 cursor press button1
+    bindsym --release z seat seat0 cursor release button1
+
+    # Middle button
+    bindsym x seat seat0 cursor press button2
+    bindsym --release x seat seat0 cursor release button2
+
+    # Right button
+    bindsym c seat seat0 cursor press button3
+    bindsym --release c seat seat0 cursor release button3
+
+    bindsym Escape mode default
+}
+
+bindsym $mod+g exec wl-kbptr-sway-active-win -o modes=floating','click -o mode_floating.source=detect
+bindsym $mod+Shift+g mode Mouse
+
+set $border #041c01
+set $background #041c01
+set $font #adff2f
+set $unfocused #0a0a0a
+set $unfocused_font #a3a3a3
+set $urgent #121212
+set $urgent_font #b01729
+
+client.background       $border $background $font
+client.focused          $border $background $font
+client.focused_inactive  $border $background $font
+client.unfocused        $unfocused $unfocused $unfocused_font
+client.urgent          $urgent $urgent $urgent_font
+
+input <identifier> xkb_model "pc101"
+
+font pango:JetBrainsMonoNL Nerd Font Propo 10
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
+
+# volume adjustment
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+exec wal -i ~/Pictures/Wallpapers/mojave.png
+
+gaps inner 2
+gaps outer 2
+for_window [class="^.*"] border normal 1
+default_border normal 1
+default_floating_border normal 1
+hide_edge_borders smart
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# kill focused window
+bindsym $mod+q kill
+
+# wmenu
+bindsym $mod+d exec --no-startup-id $menu
+
+# file manager (nemo)
+bindsym $mod+e exec nemo
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## screenshot
+
+# region
+bindsym $mod+Shift+s exec screencap-region
+
+# desktop
+bindsym $mod+Print exec screencap
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+Tab floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# quit sway
+bindsym $mod+Shift+q $quitsway
+
+# move to scratchpad
+bindsym $mod+Shift+h move scratchpad
+
+# show scratchpad
+bindsym $mod+0 scratchpad show
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym $mod+l exec lock-n-sleep
+
+# startup
+exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=sway &
+exec dunst &
+exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+exec systemctl --user restart xdg-desktop-portal.service &
+exec 'swaymsg output "*" bg $HOME/Pictures/Wallpapers/mojave.png fill &'
+exec systemctl status --user app-com.github.wwmm.easyeffects@autostart.service &
+exec /home/ada/.local/bin/pw-link-guitar.sh &
+exec /home/ada/.local/bin/pw-link-cli.sh &
