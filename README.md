@@ -1,4 +1,4 @@
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/main/assets/gitbanner.png)
+![screenshot](https://raw.githubusercontent.com/witchfuneral/dotfiles/refs/heads/main/assets/gitbanner.png)
 
 - distro: [archlinux](https://archlinux.org/)
 - window manager: [river](https://codeberg.org/river/river)
