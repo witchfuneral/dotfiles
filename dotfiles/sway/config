@@ -3,7 +3,7 @@
 set $mod Mod4
 
 # for desktop
-output "DP-3" {
+output "DP-1" {
     mode  1920x1080@143.856Hz
     pos 0 0
     transform normal
@@ -11,13 +11,13 @@ output "DP-3" {
     scale_filter nearest
     adaptive_sync off
     dpms on
-    bg $HOME/Pictures/Wallpapers/arch-nb.png fill
+    bg $HOME/Pictures/Wallpapers/picture3.png fill
 }
 
 # for laptop
 output eDP-1 {
     scale 1.25
-    bg $HOME/Pictures/Wallpapers/arch-nb.png fill
+    bg $HOME/Pictures/Wallpapers/picture3.png fill
 }
 
 bar { 
@@ -28,12 +28,18 @@ input * {
     xkb_layout "tr"
 }
 
-set $menu 'wmenu-run -N 000000 -n adff2f -M 000000 -m adff2f -S adff2f -s 000000 -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 11.5"'
+input type:keyboard {
+    repeat_delay 300
+    repeat_rate 50
+}
 
-# for my mx master
-input 1133:16489:Logitech_MX_Master_2S {
+set $menu 'wmenu-run -N 10001D -n eba3d8 -M 10001D -m eba3d8 -S eba3d8 -s 10001D -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 12"'
+
+# for my mouse
+input 7511:64096:Beken_2.4G_Wireless_Device {
     natural_scroll enabled
     accel_profile "flat"
+    pointer_accel -0.1
 }
 
 # laptop touchpad
@@ -76,10 +82,10 @@ bindsym $mod+g exec wl-kbptr-sway-active-win -o modes=floating','click -o mode_f
 bindsym $mod+Shift+g mode Mouse
 
 # colors
-set $border #041c01
-set $background #041c01
-set $font #adff2f
-set $unfocused #0a0a0a
+set $border #10001D
+set $background #10001D
+set $font #eba3d8
+set $unfocused #000000
 set $unfocused_font #a3a3a3
 set $urgent #121212
 set $urgent_font #b01729
@@ -108,8 +114,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-gaps inner 2
-gaps outer 2
+gaps inner 4
+gaps outer 4
 for_window [class="^.*"] border normal 1
 default_border normal 1
 default_floating_border normal 1
@@ -222,8 +228,14 @@ bindsym $mod+l exec lock-n-sleep
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=sway &
 exec dunst &
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-exec systemctl --user restart xdg-desktop-portal.service &
-exec 'swaymsg output "*" bg $HOME/Pictures/Wallpapers/mojave.png fill &'
-exec systemctl status --user app-com.github.wwmm.easyeffects@autostart.service &
-exec /home/ada/.local/bin/pw-link-guitar.sh &
-exec /home/ada/.local/bin/pw-link-cli.sh &
+exec systemctl --user start xdg-desktop-portal.service &
+exec wal -i ~/Pictures/Wallpapers/picture3.png &
+exec xfce4-volumed-pulse &
+exec hypridle &
+exec $HOME/.local/bin/spoof
+
+# autostart applications
+exec Telegram &
+exec discord-patch &
+exec steam &
+exec feishin &
