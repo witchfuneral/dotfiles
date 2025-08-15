@@ -4,11 +4,11 @@
 
 dependency-install () {
 # install only the dependencies
-  sudo pacman -S sway swaylock swaybg wl-clipboard swaylock curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty nemo mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd wmenu --noconfirm
+  sudo pacman -S sway swaylock swaybg wl-clipboard hypridle curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty nemo ristretto parole mousepad mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd wmenu --noconfirm
 }
 
 while true; do
-        read -p "install listed dependencies? (check readme for detailed list) (y/n): " yn
+        read -p "install dependencies? (check readme for detailed list) (y/n): " yn
     case $yn in
         [Yy]* ) dependency-install; break;;
         [Nn]* ) break;;
@@ -37,7 +37,7 @@ echo "done"
 
 echo ""
 echo "creating directories"
-mkdir -p ~/.config/kitty ~/.config/sway ~/Pictures/Screenshots ~/.config/waybar ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers
+mkdir -p ~/.config/kitty ~/.config/sway ~/Pictures/Screenshots ~/.config/waybar ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers ~/.config/hypridle
 
 # 4 - oh-my-zsh
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -57,6 +57,7 @@ cp dotfiles/waybar/config ~/.config/waybar/
 cp dotfiles/waybar/style.css ~/.config/waybar/
 cp dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 cp dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
+cp dotfiles/hypridle/hypridle.conf ~/.config/hypr/hypridle.conf
 cp dotfiles/xdg-desktop-portal/portals.conf ~/.config/xdg-desktop-portal/portals.conf
 echo "dotfiles installed!"
 
