@@ -1,11 +1,11 @@
 * {
 	min-height: 22px;
 	font-size: 14px;
-	font-family: "JetBrainsMonoNL Nerd Font Propo";
+	font-family: Iosevka NF SemiBold;
 }
 
 window#waybar {
-	background: #000000;
+	background: #10001D;
 	color: #ffffff;
 }
 
@@ -33,34 +33,44 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
-#disk
+#disk,
 #tray {
-        background: #000000;
+        background: #10001D;
 	color: #ffffff;
 }
 
 #workspaces button {
-	padding: 0 10px;
 	color: #ffffff;
+	padding: 0 10px;
 }
 #workspaces button.focused {
-	color: #ADFF2F;
-	background: #041c01;
+	color: #000000;
+	background: #C732B6;
 }
+
+#workspaces button.focused.occupied {
+	color: #000000;
+}
+
 #workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
 #workspaces button:hover {
-	background: #1f1f1f;
-	color: #adff2f;
+	background: #C732B6;
+	color: #000000;
 	padding: 0 10px;
 }
 
-#workspaces button.occupied {
-	color: #ADFF2F
-
+#workspaces button.occupied:hover {
+	color: #000000;
+	background: #C732B6;
 }
+
+#workspaces button.occupied {
+	color: #eba3d8;
+}
+
 
 #pulseaudio {
 	color: #ffffff;
