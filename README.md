@@ -1,7 +1,7 @@
 ![screenshot](https://raw.githubusercontent.com/witchfuneral/dotfiles/refs/heads/refactor/assets/banner.png)
 
 - distro: [archlinux](https://archlinux.org/)
-- window manager: [river](https://codeberg.org/river/river)
+- window manager: [sway](https://archlinux.org/packages/extra/x86_64/sway)
 - top bar: [waybar](https://github.com/Alexays/Waybar)
 - launcher: [wmenu](https://codeberg.org/adnano/wmenu)
 - file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
@@ -13,7 +13,7 @@
 
 ## Dependencies
 
-- river
+- sway
 - wl-clipboard
 - swaylock
 - grim
