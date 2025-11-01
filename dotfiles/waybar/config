@@ -2,70 +2,36 @@
 
 {
 	"layer": "top",
-	"position": "top",
+	"position": "bottom",
 
 	"modules-left": [
-		"river/tags",
+		"sway/workspaces",
 		"custom/spacer",
 		"custom/separator",
-		"custom/spacer",
 		"custom/spacer",
 		"custom/music",
 	],
 	"modules-center": [
-		"custom/left-arrow-one",
-		"custom/left-arrow-two",
-		"custom/spacer",
-		"custom/tree",
-		"clock#1",
-		"custom/separator",
-		"clock#2",
-		"custom/separator",
-		"clock#3",
-		"custom/moon",
-		"custom/spacer",
-		"custom/right-arrow-one",
-		"custom/right-arrow-two"
+		"sway/window",
 	],
 	"modules-right": [
 		"custom/spacer",
 		"tray",
 		"custom/spacer",
-                "custom/separator",
+		"custom/spacer",
+		"custom/separator",
 		"custom/spacer",
 		"custom/spacer",
 		"network",
-		"pulseaudio",
-		"bluetooth",
-		"battery",
 		"custom/spacer",
+		"pulseaudio",
+		"custom/spacer",
+		"bluetooth",
+		"custom/spacer",
+		"battery",
+		"clock#2",
+		"clock#3",
 	],
-
-	"custom/moon": {
-		"format": "  ",
-		"tooltip": false
-	},
-	"custom/tree": {
-		"format": " 󰐅 ",
-		"tooltip": false
-	},
-	"custom/left-arrow-one": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-one": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/left-arrow-two": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-two": {
-		"format": "",
-		"tooltip": false
-	}, 
 
 	"custom/spacer": {
                 "format": " ",
@@ -82,23 +48,20 @@
 		"format": "{name}"
 	},
 
-	"clock#1": {
-		"format": " {:%a} 󰃭 ",
-		"tooltip": false
-	},
 	"clock#2": {
-		"format": "{:%m-%d}",
+		"format": " {:%m-%d}",
 		"tooltip": false
 	},
 	"clock#3": {
-		"format": "   {:%H:%M}",
+		"format": "  {:%H:%M:%S}",
+		"interval": 1,
 		"tooltip": false
 	},
 
 	"pulseaudio": {
 		"format": "{icon}",
 		"format-bluetooth": "{icon}  {volume}%",
-		"format-muted": "󰝟 muted",
+		"format-muted": "󰝟 ",
 		"format-icons": {
 			"headphones": " ",
 			"default": [
@@ -107,7 +70,7 @@
 			]
 		},
 		"scroll-step": 5,
-		"on-click": "pamixer -t",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-click-right": "pavucontrol"
 	},
 	"memory": {
@@ -124,36 +87,33 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 18,
+		"icon-size": 14,
 		"spacing": 10,
 	},
 	"battery": {
 		"bat": "BAT0",
-		"interval": 30,
+		"interval": 60,
     		"states": {
         		"warning": 30,
         		"critical": 15
     		},
-    	"format": "{icon}  {capacity}%",
+    	"format": "{icon}",
    	"format-icons": ["", "", "", "", ""],
-    	"max-length": 25
+    	"max-length": 50,
+	"tooltip-format": "{capacity}% - {timeTo}"
 },
 
 "bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	"format": "",
-	"format-disabled": "", // an empty format will hide the module
-	"format-connected": "",
-	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"format-disabled": "",
+	"format-connected": " {num_connections}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
 },
 
 "network": {
-    "interface": "wlo1",
-    // "interface": wlp46s0,
     "format-wifi": "󰤨 ",
-    "format-ethernet": "󰈀 ",
+    "format-ethernet": "󰈀 {ifname] ",
     "format-disconnected": "󰤯 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -163,18 +123,35 @@
 },
 
 "custom/music": {
-    "exec": "mediaplayer --player Feishin",
-    "format": "󰎆 {}",
+    "exec": "mediaplayer",
+    "format": "󰎆  {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "max-length": 25
+    "max-length": 50
 },
 
-"river/window": {
+"sway/window": {
     "format": "{}",
-    "max-length": 25
+    "max-length": 50
+},
+
+"sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "current-only": false,
+    "format": "{name}",
+    "persistent-workspaces": {
+    	"1": [],
+	"2": [],
+	"3": [],
+	"4": [],
+	"5": [],
+	"6": [],
+	},
+        "high-priority-named": ["1", "2"]
+    }
 }
 
 }

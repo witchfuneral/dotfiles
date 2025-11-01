@@ -1,20 +1,19 @@
-![screenshot](https://raw.githubusercontent.com/dyingwillow/dotfiles-river/refs/heads/main/assets/gitbanner.png)
+![screenshot](https://raw.githubusercontent.com/witchfuneral/dotfiles/refs/heads/refactor/assets/banner.png)
 
 - distro: [archlinux](https://archlinux.org/)
-- window manager: [river](https://codeberg.org/river/river)
+- window manager: [sway](https://archlinux.org/packages/extra/x86_64/sway)
 - top bar: [waybar](https://github.com/Alexays/Waybar)
-- launcher: [wofi](https://hg.sr.ht/~scoopta/wofi)
+- launcher: [wmenu](https://codeberg.org/adnano/wmenu)
 - file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
 - editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
 - ide: [codium](https://vscodium.com/)
 - font: [iosevka nerd + jetbrains mono nerd](https://www.nerdfonts.com/font-downloads)
-- *fetch: [pfetch](https://github.com/Un1q32/pfetch)
 
 ## Dependencies
 
-- river
+- sway
 - wl-clipboard
 - swaylock
 - grim
@@ -31,8 +30,9 @@
 - xdg-desktop-portal-gtk (file chooser)
 - gnome-keyring
 - dunst
-- swww
+- swaybg
 - nwg-look
+- hypridle
 
 # Optional
 - flatpak

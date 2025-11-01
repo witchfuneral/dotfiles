@@ -1,31 +1,22 @@
 * {
-	min-height: 34px;
-	font-size: 15px;
+	min-height: 22px;
+	font-size: 14px;
 	font-family: Iosevka NF SemiBold;
 }
 
+
+@import '/home/witch/.cache/wal/colors-waybar.css';
+
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color textcolor @cursor;
+
 window#waybar {
-	background: #000000;
-	color: #ffffff;
+	background: @bg;
+	color: @textcolor;
 }
 
-#custom-right-arrow-one {
-	color: #ffffff;
-}
-
-#custom-right-arrow-two {
-	color: #ffffff;
-}
-
-#custom-left-arrow-one {
-	color: #ffffff;
-}
-
-#custom-left-arrow-two {
-	color: #ffffff;
-}
-
-#tags, 
+#workspaces, 
 #clock.1,
 #clock.2,
 #clock.3,
@@ -33,51 +24,59 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
-#disk
+#disk,
 #tray {
-        background: #000000;
-	color: #ffffff;
+        background: @bg;
+	color: @textcolor;
 }
 
-#tags button {
+#workspaces button {
+	color: @textcolor;
 	padding: 0 10px;
-	color: #ffffff;
 }
-#tags button.focused {
-	color: #ADFF2F;
-	background: #041c01;
+#workspaces button.focused {
+	color: #000000;
+	background: @color2;
 }
-#tags button:hover {
+
+#workspaces button.focused.occupied {
+	color: #000000;
+}
+
+#workspaces button:hover {
 	box-shadow: inherit;
 	text-shadow: inherit;
 }
-#tags button:hover {
-	background: #1f1f1f;
-	color: #adff2f;
+#workspaces button:hover {
+	background: #C732B6;
+	color: #000000;
 	padding: 0 10px;
 }
 
-#tags button.occupied {
-	color: #ADFF2F
-
+#workspaces button.occupied:hover {
+	color: #000000;
+	background: #C732B6;
 }
 
-#tags button.
+#workspaces button.occupied {
+	color: #eba3d8;
+}
+
 
 #pulseaudio {
-	color: #ffffff;
+	color: @textcolor;
 }
 #memory {
-	color: #ffffff;
+	color: @textcolor;
 }
 #cpu {
-	color: #ffffff;
+	color: @textcolor;
 }
 #battery {
-	color: #ffffff;
+	color: @textcolor;
 }
 #disk {
-	color: #ffffff;
+	color: @textcolor;
 }
 
 #clock,

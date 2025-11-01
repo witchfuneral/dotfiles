@@ -1,0 +1,12 @@
+background-color=#171b21
+text-color=#a9c3e1
+font=JetBrainsMonoNL Nerd Font Propo 10
+border-size=1
+border-color=#4784CF
+icons=1
+default-timeout=3000
+sort=-time
+padding=8
+max-icon-size=64
+text-alignment=center
+anchor=top-center
