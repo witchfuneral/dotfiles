@@ -4,7 +4,7 @@
 - window manager: [sway](https://archlinux.org/packages/extra/x86_64/sway)
 - top bar: [waybar](https://github.com/Alexays/Waybar)
 - launcher: [wmenu](https://codeberg.org/adnano/wmenu)
-- file manager: [nemo](https://archlinux.org/packages/extra/x86_64/nemo/)
+- file manager: [ranger](https://archlinux.org/packages/extra/x86_64/ranger/)
 - terminal emulator: [kitty](https://sw.kovidgoyal.net/kitty/)
 - shell: [zsh](https://www.zsh.org/) + [oh-my-zsh](https://ohmyz.sh/)
 - editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
@@ -14,32 +14,24 @@
 ## Dependencies
 
 - sway
-- wl-clipboard
 - swaylock
+- swayidle
+- swaybg
+- waybar
+- kitty
+- ranger
+- wl-clipboard
 - grim
 - slurp
 - imagemagick
 - python-pywal
-- waybar
-- kitty
-- nemo
 - mate-polkit
-- engrampa
 - xdg-desktop-portal
 - xdg-desktop-portal-wlr (screencast)
 - xdg-desktop-portal-gtk (file chooser)
 - gnome-keyring
-- dunst
-- swaybg
+- mako
 - nwg-look
-- hypridle
-
-# Optional
-- flatpak
-- [telegram](https://desktop.telegram.org/)
-- steam
-- firefox
-- [feishin](https://github.com/jeffvli/feishin)
 
 # Installation
 
