@@ -7,6 +7,8 @@
 	"modules-left": [
 		"sway/workspaces",
 		"custom/spacer",
+		"custom/separator",
+		"custom/spacer",
 		"custom/music",
 	],
 	"modules-center": [
@@ -16,10 +18,17 @@
 		"custom/spacer",
 		"tray",
 		"custom/spacer",
+		"custom/spacer",
+		"custom/separator",
+		"custom/spacer",
+		"custom/spacer",
+		"network",
+		"custom/spacer",
 		"pulseaudio",
 		"custom/spacer",
 		"bluetooth",
 		"custom/spacer",
+		"battery",
 		"clock#2",
 		"clock#3",
 	],
@@ -40,7 +49,7 @@
 	},
 
 	"clock#2": {
-		"format": "{:%m-%d}",
+		"format": " {:%m-%d}",
 		"tooltip": false
 	},
 	"clock#3": {
@@ -52,7 +61,7 @@
 	"pulseaudio": {
 		"format": "{icon}",
 		"format-bluetooth": "{icon}  {volume}%",
-		"format-muted": "󰝟 muted",
+		"format-muted": "󰝟 ",
 		"format-icons": {
 			"headphones": " ",
 			"default": [
@@ -61,7 +70,7 @@
 			]
 		},
 		"scroll-step": 5,
-		"on-click": "pamixer -t",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-click-right": "pavucontrol"
 	},
 	"memory": {
@@ -78,36 +87,33 @@
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 18,
+		"icon-size": 14,
 		"spacing": 10,
 	},
 	"battery": {
 		"bat": "BAT0",
-		"interval": 30,
+		"interval": 60,
     		"states": {
         		"warning": 30,
         		"critical": 15
     		},
-    	"format": "{icon}  {capacity}%",
+    	"format": "{icon}",
    	"format-icons": ["", "", "", "", ""],
-    	"max-length": 50
+    	"max-length": 50,
+	"tooltip-format": "{capacity}% - {timeTo}"
 },
 
 "bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	"format": "",
-	"format-disabled": "", // an empty format will hide the module
-	"format-connected": "",
-	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"format-disabled": "",
+	"format-connected": " {num_connections}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
 },
 
 "network": {
-    "interface": "wlo1",
-    // "interface": wlp46s0,
     "format-wifi": "󰤨 ",
-    "format-ethernet": "󰈀 ",
+    "format-ethernet": "󰈀 {ifname] ",
     "format-disconnected": "󰤯 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -117,17 +123,12 @@
 },
 
 "custom/music": {
-    "exec": "mediaplayer --player Feishin",
+    "exec": "mediaplayer",
     "format": "󰎆  {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "max-length": 50
-},
-
-"river/window": {
-    "format": "{}",
     "max-length": 50
 },
 
@@ -149,9 +150,6 @@
 	"5": [],
 	"6": [],
 	},
-        "urgent": "",
-        "focused": "",
-        "default": "",
         "high-priority-named": ["1", "2"]
     }
 }

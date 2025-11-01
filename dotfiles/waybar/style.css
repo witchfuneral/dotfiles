@@ -4,25 +4,16 @@
 	font-family: Iosevka NF SemiBold;
 }
 
+
+@import '/home/witch/.cache/wal/colors-waybar.css';
+
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color textcolor @cursor;
+
 window#waybar {
-	background: #10001D;
-	color: #ffffff;
-}
-
-#custom-right-arrow-one {
-	color: #ffffff;
-}
-
-#custom-right-arrow-two {
-	color: #ffffff;
-}
-
-#custom-left-arrow-one {
-	color: #ffffff;
-}
-
-#custom-left-arrow-two {
-	color: #ffffff;
+	background: @bg;
+	color: @textcolor;
 }
 
 #workspaces, 
@@ -35,17 +26,17 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-        background: #10001D;
-	color: #ffffff;
+        background: @bg;
+	color: @textcolor;
 }
 
 #workspaces button {
-	color: #ffffff;
+	color: @textcolor;
 	padding: 0 10px;
 }
 #workspaces button.focused {
 	color: #000000;
-	background: #C732B6;
+	background: @color2;
 }
 
 #workspaces button.focused.occupied {
@@ -73,19 +64,19 @@ window#waybar {
 
 
 #pulseaudio {
-	color: #ffffff;
+	color: @textcolor;
 }
 #memory {
-	color: #ffffff;
+	color: @textcolor;
 }
 #cpu {
-	color: #ffffff;
+	color: @textcolor;
 }
 #battery {
-	color: #ffffff;
+	color: @textcolor;
 }
 #disk {
-	color: #ffffff;
+	color: @textcolor;
 }
 
 #clock,

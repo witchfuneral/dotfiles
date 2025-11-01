@@ -37,7 +37,7 @@ echo "done"
 
 echo ""
 echo "creating directories"
-mkdir -p ~/.config/kitty ~/.config/sway ~/Pictures/Screenshots ~/.config/waybar ~/.config/nvim ~/.config/dunst ~/.config/xdg-desktop-portal ~/Pictures/Wallpapers ~/.config/hypridle
+mkdir -p ~/.config/kitty ~/.config/sway ~/Pictures/Screenshots ~/.config/waybar ~/.config/nvim ~/.config/mako ~/.config/xdg-desktop-portal ~/.config/wal ~/Pictures/Wallpapers
 
 # 4 - oh-my-zsh
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -56,8 +56,7 @@ cp dotfiles/sway/config ~/.config/sway/
 cp dotfiles/waybar/config ~/.config/waybar/
 cp dotfiles/waybar/style.css ~/.config/waybar/
 cp dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-cp dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
-cp dotfiles/hypridle/hypridle.conf ~/.config/hypr/hypridle.conf
+cp dotfiles/mako/* ~/.config/mako
 cp dotfiles/xdg-desktop-portal/portals.conf ~/.config/xdg-desktop-portal/portals.conf
 echo "dotfiles installed!"
 
