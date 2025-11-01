@@ -1,23 +1,13 @@
 # my sway config
 
 set $mod Mod4
-
-# for desktop
-output "DP-1" {
-    mode  1920x1080@143.856Hz
-    pos 0 0
-    transform normal
-    scale 1.0
-    scale_filter nearest
-    adaptive_sync off
-    dpms on
-    bg $HOME/Pictures/Wallpapers/picture3.png fill
-}
+font pango:JetBrainsMonoNL Nerd Font Propo 10
 
 # for laptop
 output eDP-1 {
     scale 1.25
-    bg $HOME/Pictures/Wallpapers/picture3.png fill
+    scale_filter linear 
+    bg $HOME/Pictures/Wallpapers/arc-mountains.png fill
 }
 
 bar { 
@@ -33,8 +23,6 @@ input type:keyboard {
     repeat_rate 50
 }
 
-set $menu 'wmenu-run -N 10001D -n eba3d8 -M 10001D -m eba3d8 -S eba3d8 -s 10001D -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 12"'
-
 # for my mouse
 input 7511:64096:Beken_2.4G_Wireless_Device {
     natural_scroll enabled
@@ -43,7 +31,7 @@ input 7511:64096:Beken_2.4G_Wireless_Device {
 }
 
 # laptop touchpad
-input 1267:12735:ELAN0795:00_04F3:31BF_Touchpad {
+input 1739:52828:SYNA8020:00_06CB:CE5C_Touchpad {
     natural_scroll enabled
     dwt enabled
     tap enabled
@@ -51,58 +39,32 @@ input 1267:12735:ELAN0795:00_04F3:31BF_Touchpad {
     drag enabled
 }
 
-# use keyboard as mouse
-mode Mouse {
-    bindsym e mode default, exec 'wl-kbptr-sway-active-win; swaymsg mode Mouse'
-    bindsym Shift+e mode default, exec 'wl-kbptr; swaymsg mode Mouse'
+# idle configuration
+exec $HOME/.local/bin/lock.sh &
 
-    # move "mouse"
-    bindsym a seat seat0 cursor move -15 0
-    bindsym s seat seat0 cursor move 0 15
-    bindsym w seat seat0 cursor move 0 -15
-    bindsym d seat seat0 cursor move 15 0
+# manual lock
+bindsym --release $mod+Alt+l exec 'swaylock-blur'
 
-    # mouse left button
-    bindsym z seat seat0 cursor press button1
-    bindsym --release z seat seat0 cursor release button1
+## colors
+# import from wal
+include "$HOME/.cache/wal/colors-sway"
 
-    # mouse middle button
-    bindsym x seat seat0 cursor press button2
-    bindsym --release x seat seat0 cursor release button2
+# defined colors
+set $alt_background #0d0d0d
+set $alt_font #333333
+set $urgent_background #B00000
+set $urgent_font #240000
 
-    # mouse right button
-    bindsym c seat seat0 cursor press button3
-    bindsym --release c seat seat0 cursor release button3
-    
-    # exit mouse mode
-    bindsym Escape mode default
-}
-# more mouse mode
-bindsym $mod+g exec wl-kbptr-sway-active-win -o modes=floating','click -o mode_floating.source=detect
-bindsym $mod+Shift+g mode Mouse
-
-# colors
-set $border #10001D
-set $background #10001D
-set $font #eba3d8
-set $unfocused #000000
-set $unfocused_font #a3a3a3
-set $urgent #121212
-set $urgent_font #b01729
 # for window titles
-client.background       $border $background $font
-client.focused          $border $background $font
-client.focused_inactive  $border $background $font
-client.unfocused        $unfocused $unfocused $unfocused_font
-client.urgent          $urgent $urgent $urgent_font
-
-font pango:JetBrainsMonoNL Nerd Font Propo 10
+client.focused       $color0 $background $foreground $color7 $background
+client.background          $alt_background $alt_background $alt_font
+client.urgent          $urgent_background $urgent_background $urgent_font
 
 # volume adjustment
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # media player
 bindsym XF86AudioMedia exec playerctl play-pause
@@ -114,8 +76,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-gaps inner 4
-gaps outer 4
+gaps inner 2
+gaps outer 1
 for_window [class="^.*"] border normal 1
 default_border normal 1
 default_floating_border normal 1
@@ -125,13 +87,22 @@ hide_edge_borders smart
 bindsym $mod+Return exec kitty
 
 # kill focused window
-bindsym Alt+Shift+q kill
+bindsym $mod+q kill
 
 # wmenu
+# keep this as a monochrome color scheme - will change when i figure out wal with it
+set $menu 'wmenu-run -N 000000 -n ffffff -M 000000 -m ffffff -S ffffff -s 000000 -p run: -b -i -f "JetBrainsMonoNL Nerd Font Propo 12"'
+
 bindsym $mod+d exec --no-startup-id $menu
 
-# file manager (nemo)
-bindsym $mod+e exec nemo
+# file manager
+bindsym $mod+e exec kitty -e ranger
+
+# launch nvim
+bindsym $mod+n exec kitty -e nvim
+
+# spotify-player
+bindsym $mod+s exec kitty -e spotify_player
 
 # change focus
 bindsym $mod+Left focus left
@@ -146,6 +117,9 @@ bindsym $mod+Shift+s exec screencap-region
 
 # desktop
 bindsym $mod+Print exec screencap
+
+# run htop
+bindsym $mod+t exec kitty -e htop
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -222,14 +196,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+l exec lock-n-sleep
-
 # startup
+exec wal -i ~/Pictures/Wallpapers/arc-mountains.png &
 exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS SEATD_SOCK DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=sway &
-exec dunst &
+exec mako &
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 exec systemctl --user start xdg-desktop-portal.service &
-exec wal -i ~/Pictures/Wallpapers/picture3.png &
+exec sh ~/.config/mako/update-theme.sh
 exec xfce4-volumed-pulse &
 exec hypridle &
 exec $HOME/.local/bin/spoof
