@@ -113,7 +113,7 @@
 
 "network": {
     "format-wifi": "󰤨 ",
-    "format-ethernet": "󰈀 {ifname] ",
+    "format-ethernet": "󰈀 ",
     "format-disconnected": "󰤯 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
