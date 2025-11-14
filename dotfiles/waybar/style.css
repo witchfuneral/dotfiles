@@ -48,18 +48,18 @@ window#waybar {
 	text-shadow: inherit;
 }
 #workspaces button:hover {
-	background: #C732B6;
+	background: @color3;
 	color: #000000;
 	padding: 0 10px;
 }
 
 #workspaces button.occupied:hover {
 	color: #000000;
-	background: #C732B6;
+	background: @color3;
 }
 
 #workspaces button.occupied {
-	color: #eba3d8;
+	color: @color4;
 }
 
 
