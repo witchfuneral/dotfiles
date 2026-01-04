@@ -1,0 +1,5 @@
+#!/bin/bash
+FILENAME="Screenshot-`date +%F-%T`"
+grim ~/Pictures/Screenshots/$FILENAME.png
+wl-copy < ~/Pictures/Screenshots/$FILENAME.png
+notify-send "screenshot saved!" "saved to ~/Pictures/Screenshots"
