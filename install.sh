@@ -4,7 +4,7 @@
 
 dependency-install () {
 # install only the dependencies
-  sudo pacman -S sway swaylock swaybg wl-clipboard hypridle curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty nemo ristretto parole mousepad mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring dunst nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd wmenu --noconfirm
+  sudo pacman -S sway swaylock swaybg wl-clipboard swayidle curl wget wlr-randr gvfs-smb ly xfce4-volumed-pulse pamixer brightnessctl python-gobject zsh grim slurp imagemagick waybar kitty ranger feh mate-polkit xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk gnome-keyring mako nwg-look ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-adwaita-mono-nerd adwaita-fonts wmenu --noconfirm
 }
 
 while true; do
@@ -22,22 +22,22 @@ echo "dependencies installed."
 # 1 - scripts
 
 echo ""
-echo "installing scripts to path, root required again"
-sudo cp scripts/usr/* /usr/local/bin/
+echo "installing scripts to path"
 mkdir -p ~/.local/bin
-cp scripts/local/* ~/.local/bin
+cp scripts/* ~/.local/bin
 
 # 2 - neovim
 
+echo ""
+echo "installing vimplug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-echo "done"
 
 # 3 - directories
 
 echo ""
 echo "creating directories"
-mkdir -p ~/.config/kitty ~/.config/sway ~/Pictures/Screenshots ~/.config/waybar ~/.config/nvim ~/.config/mako ~/.config/xdg-desktop-portal ~/.config/wal ~/Pictures/Wallpapers
+mkdir -p ~/.config/kitty ~/.config/sway ~/.config/waybar ~/.config/nvim ~/.config/mako ~/.config/xdg-desktop-portal ~/.config/wal ~/Pictures/Wallpapers ~/Pictures/Screenshots
 
 # 4 - oh-my-zsh
 git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -56,9 +56,6 @@ cp dotfiles/sway/config ~/.config/sway/
 cp dotfiles/waybar/config ~/.config/waybar/
 cp dotfiles/waybar/style.css ~/.config/waybar/
 cp dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-cp dotfiles/mako/* ~/.config/mako
+cp dotfiles/mako/* ~/.config/mako/
 cp dotfiles/xdg-desktop-portal/portals.conf ~/.config/xdg-desktop-portal/portals.conf
 echo "dotfiles installed!"
-
-# delete temp files
-rm -rf /tmp/dotfiles
